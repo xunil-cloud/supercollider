@@ -6,7 +6,7 @@
 	url = https://github.com/timblechmann/nova-tt.git
 [submodule "external_libraries/hidapi"]
 	path = external_libraries/hidapi
-	url = https://github.com/supercollider/hidapi.git
+	url = https://github.com/xunil-cloud/hidapi.git
 [submodule "editors/scvim"]
 	path = editors/scvim
 	url = https://github.com/supercollider/scvim.git
