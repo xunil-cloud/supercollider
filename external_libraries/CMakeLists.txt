@@ -138,20 +138,8 @@ else()
 endif()
 
 if(WIN32)
-  add_library(portmidi portmidi/pm_common/pminternal.h
-                       portmidi/pm_common/pmutil.c
-                       portmidi/pm_common/pmutil.h
-                       portmidi/pm_common/portmidi.c
-                       portmidi/pm_common/portmidi.h
-                       portmidi/pm_win/pmwin.c
-                       portmidi/pm_win/pmwinmm.c
-                       portmidi/pm_win/pmwinmm.h
-                       portmidi/porttime/porttime.c
-                       portmidi/porttime/porttime.h
-                       portmidi/porttime/ptwinmm.c)
-  target_include_directories(portmidi PUBLIC  portmidi/pm_common portmidi/porttime)
-  target_include_directories(portmidi PRIVATE portmidi/pm_win)
-
-  target_link_libraries(portmidi PRIVATE winmm.lib)
+  remove_definitions(-DWIN32_LEAN_AND_MEAN -DNOMINMAX)
+  add_subdirectory(portmidi)
   target_compile_definitions(portmidi INTERFACE HAVE_PORTMIDI)
+  add_definitions(-DWIN32_LEAN_AND_MEAN -DNOMINMAX)
 endif()
