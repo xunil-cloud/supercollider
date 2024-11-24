@@ -139,7 +139,10 @@ endif()
 
 if(WIN32)
   remove_definitions(-DWIN32_LEAN_AND_MEAN -DNOMINMAX)
+  set(BUILD_SHARED_LIBS OFF)
   add_subdirectory(portmidi)
   target_compile_definitions(portmidi INTERFACE HAVE_PORTMIDI)
+  target_include_directories(portmidi INTERFACE 
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/portmidi/porttime>)
   add_definitions(-DWIN32_LEAN_AND_MEAN -DNOMINMAX)
 endif()
