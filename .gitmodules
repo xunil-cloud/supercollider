@@ -24,4 +24,4 @@
 	url = https://github.com/PortAudio/portaudio.git
 [submodule "external_libraries/portmidi"]
 	path = external_libraries/portmidi
-	url = https://github.com/PortMidi/portmidi
+	url = https://github.com/xunil-cloud/portmidi
