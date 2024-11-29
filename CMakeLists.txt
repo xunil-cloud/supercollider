@@ -277,6 +277,7 @@ endif()
 
 option(SYSTEM_ABLETON_LINK "Use link from system" OFF)
 option(SYSTEM_BOOST   "Use boost libraries from system" OFF)
+option(SYSTEM_LIBGIT2   "Use libgit2 libraries from system" OFF)
 option(SYSTEM_YAMLCPP "Use yaml-cpp library from system" OFF)
 option(SYSTEM_PORTAUDIO "Use PortAudio libraries from system" ON)
 if(WIN32)
@@ -353,6 +354,11 @@ if(SYSTEM_YAMLCPP)
   find_package(YamlCpp)
 else()
   set(SYSTEM_YAMLCPP OFF)
+endif()
+
+if(SYSTEM_LIBGIT2)
+  find_package(PkgConfig REQUIRED)
+  pkg_check_modules(LIBGIT2 REQUIRED IMPORTED_TARGET libgit2)
 endif()
 
 set(CMAKE_CXX_STANDARD 17)
@@ -491,7 +497,6 @@ add_subdirectory(server)
 add_subdirectory(lang)
 add_subdirectory(platform)
 add_subdirectory(editors)
-add_subdirectory(libgit2)
 
 if(UNIX AND NOT APPLE)
     install(DIRECTORY include/common include/plugin_interface include/server include/lang
