@@ -11,6 +11,12 @@ if(NOT SYSTEM_LIBGIT2)
 	option(BUILD_TESTS "" OFF)
 	option(BUILD_CLI "" OFF)
 	add_subdirectory(libgit2)
+	# target_include_directories(libgit2package PUBLIC ${LIBGIT2_INCLUDES} ${LIBGIT2_DEPENDENCY_INCLUDES})
+	message(STATUS "hello" ${LIBGIT2_SYSTEM_LIBS})
+	message(STATUS "hello" ${LIBGIT2_DEPENDENCY_OBJECTS})
+    # target_include_directories(libgit2package SYSTEM PUBLIC ${LIBGIT2_SYSTEM_INCLUDES})
+	# target_link_libraries(libgit2package INTERFACE ${LIBGIT2_SYSTEM_LIBS})
+	target_include_directories(libgit2package INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/libgit2/include)
 endif()
 
 
