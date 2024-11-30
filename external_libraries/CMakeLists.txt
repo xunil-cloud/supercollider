@@ -17,6 +17,9 @@ if(NOT SYSTEM_LIBGIT2)
     # target_include_directories(libgit2package SYSTEM PUBLIC ${LIBGIT2_SYSTEM_INCLUDES})
 	# target_link_libraries(libgit2package INTERFACE ${LIBGIT2_SYSTEM_LIBS})
 	target_include_directories(libgit2package INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/libgit2/include)
+set_property(TARGET libgit2package PROPERTY ARCHIVE_OUTPUT_DIRECTORY)
+set_property(TARGET libgit2package PROPERTY LIBRARY_OUTPUT_DIRECTORY)
+set_property(TARGET libgit2package PROPERTY RUNTIME_OUTPUT_DIRECTORY)
 endif()
 
 
